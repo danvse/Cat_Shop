@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qxhl6kes45l"]
+
+[ext_resource type="Script" uid="uid://cg80shq3otrff" path="res://character_body_3d.gd" id="1_pxnsh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t3tow"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_pxnsh")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_t3tow")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Pivot" type="Node3D" parent="."]

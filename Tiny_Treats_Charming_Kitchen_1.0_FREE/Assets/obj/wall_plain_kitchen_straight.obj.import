@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cudj7ug0ob3vp"
+path="res://.godot/imported/wall_plain_kitchen_straight.obj-c0cde9bc0f87b6b57b65c8f3f227933c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_plain_kitchen_straight.obj-c0cde9bc0f87b6b57b65c8f3f227933c.mesh"]
+
+source_file="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/obj/wall_plain_kitchen_straight.obj"
+dest_files=["res://.godot/imported/wall_plain_kitchen_straight.obj-c0cde9bc0f87b6b57b65c8f3f227933c.mesh", "res://.godot/imported/wall_plain_kitchen_straight.obj-c0cde9bc0f87b6b57b65c8f3f227933c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
