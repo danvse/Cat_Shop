@@ -1,19 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7qxhl6kes45l"]
 
 [ext_resource type="Script" uid="uid://cg80shq3otrff" path="res://character_body_3d.gd" id="1_pxnsh"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_t3tow"]
+[ext_resource type="PackedScene" uid="uid://bqgsujve83j5w" path="res://go_dot_plush/godot_plush_model.glb" id="2_t3tow"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_pxnsh")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="godot_plush_model" parent="." instance=ExtResource("2_t3tow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254426, 0, -0.261596)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="godot_plush_model"]
 debug_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_t3tow")
-skeleton = NodePath("../..")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="godot_plush_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254426, 0, 0.261596)
+skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_plush_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254426, 0, 0.261596)
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="godot_plush_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254426, 0, 0.261596)
+
+[editable path="godot_plush_model"]
