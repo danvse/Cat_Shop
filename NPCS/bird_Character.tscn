@@ -1,0 +1,151 @@
+[gd_scene load_steps=20 format=3 uid="uid://g0quua17d04h"]
+
+[ext_resource type="Texture2D" uid="uid://bc30xi8i1a5nb" path="res://Assets/BIRDSPRITESHEET_Blue.png" id="1_pxj1e"]
+[ext_resource type="Script" uid="uid://4n6t1rfxy1cu" path="res://NPCS/npc_Character.gd" id="1_wjv70"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0k0e"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byif1"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m546f"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg7kf"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjv70"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15ur8"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy572"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo4tg"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxkjo"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3rot"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7jgs"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b74t7"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8f6p"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bmh"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_172rf"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3pwr"]
+atlas = ExtResource("1_pxj1e")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0k0e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0k0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byif1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m546f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg7kf")
+}],
+"loop": true,
+"name": &"back_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjv70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15ur8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy572")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo4tg")
+}],
+"loop": true,
+"name": &"front_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxkjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3rot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7jgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b74t7")
+}],
+"loop": true,
+"name": &"left_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8f6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_172rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3pwr")
+}],
+"loop": true,
+"name": &"right_Idle",
+"speed": 5.0
+}]
+
+[node name="bird_NPC" type="Sprite3D"]
+transform = Transform3D(4.87782, 0, 0, 0, 4.8878, 0, 0, 0, 0.999999, 0, 0, 0)
+billboard = 1
+script = ExtResource("1_wjv70")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00307334, 2.98023e-08, 0.000619382)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_e0k0e")
+animation = &"back_Idle"
+frame_progress = 0.347333

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://babdn17sqxj8k"]
+
+[ext_resource type="PackedScene" uid="uid://20ipfpvpyu7k" path="res://NavigationLevel.tscn" id="1_qrja6"]
+[ext_resource type="PackedScene" uid="uid://dbtbclx0pb1he" path="res://List_Of_Cats/sprite_3d.tscn" id="2_co24e"]
+[ext_resource type="PackedScene" uid="uid://b8igfvh10ykb1" path="res://List_Of_Cats/brown_cat.tscn" id="3_feb8i"]
+[ext_resource type="PackedScene" uid="uid://b2mx1lkvut4eq" path="res://List_Of_Cats/white_cat.tscn" id="4_kj3p2"]
+[ext_resource type="PackedScene" uid="uid://g0quua17d04h" path="res://NPCS/bird_Character.tscn" id="5_lc7k4"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144773, -2.38419e-07, 0.0252666)
+
+[node name="NavigationRegion3D" parent="." instance=ExtResource("1_qrja6")]
+
+[node name="original_Cat" parent="." instance=ExtResource("2_co24e")]
+transform = Transform3D(4.18972, 0, 0, 0, 4.39078, 0, 0, 0, 1.03578, 2.559, 0.316198, 0.259613)
+
+[node name="brown_Cat" parent="." instance=ExtResource("3_feb8i")]
+transform = Transform3D(2.08804, 0, 0, 0, 2.32602, 0, 0, 0, 4.88685, 0, 0, 2.71806)
+
+[node name="white_Cat" parent="." instance=ExtResource("4_kj3p2")]
+transform = Transform3D(4.8901, 0, 0, 0, 4.13417, 0, 0, 0, 1.36843, 0.430853, 0.225995, -3.34198)
+
+[node name="bird_NPC" parent="." instance=ExtResource("5_lc7k4")]
+transform = Transform3D(4.87782, 0, 0, 0, 4.8878, 0, 0, 0, 0.999999, -0.698391, 0.243734, 3.69112)
