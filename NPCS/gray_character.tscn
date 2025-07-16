@@ -1,0 +1,148 @@
+[gd_scene load_steps=20 format=3 uid="uid://cxeuir6ie7pgf"]
+
+[ext_resource type="Script" uid="uid://4n6t1rfxy1cu" path="res://NPCS/npc_Character.gd" id="1_04fwq"]
+[ext_resource type="Texture2D" uid="uid://cr4madb8gn13n" path="res://Assets/CATSPRITESHEET_Gray.png" id="2_chgx5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmwsx"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5wgc"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmlea"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45ni1"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h38w2"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwdsd"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stiw6"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogwn2"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmsk6"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiffm"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncd07"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lukr5"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sjcx"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4pbo"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trk12"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkbui"]
+atlas = ExtResource("2_chgx5")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23uoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmwsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5wgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmlea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45ni1")
+}],
+"loop": true,
+"name": &"back_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h38w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwdsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stiw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogwn2")
+}],
+"loop": true,
+"name": &"front_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmsk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiffm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncd07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lukr5")
+}],
+"loop": true,
+"name": &"left_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sjcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4pbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trk12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkbui")
+}],
+"loop": true,
+"name": &"right_Idle",
+"speed": 5.0
+}]
+
+[node name="gray_Character" type="Sprite3D"]
+script = ExtResource("1_04fwq")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(3.97194, 0, 0, 0, 3.66403, 0, 0, 0, 1.01651, -0.022882, -0.0468931, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_23uoq")
+animation = &"back_Idle"

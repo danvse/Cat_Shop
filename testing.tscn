@@ -18,7 +18,7 @@ transform = Transform3D(4.18972, 0, 0, 0, 4.39078, 0, 0, 0, 1.03578, 2.559, 0.31
 transform = Transform3D(2.08804, 0, 0, 0, 2.32602, 0, 0, 0, 4.88685, 0, 0, 2.71806)
 
 [node name="white_Cat" parent="." instance=ExtResource("4_kj3p2")]
-transform = Transform3D(4.8901, 0, 0, 0, 4.13417, 0, 0, 0, 1.36843, 0.430853, 0.225995, -3.34198)
+transform = Transform3D(4.8901, 0, 0, 0, 4.13417, 0, 0, 0, 1.36843, 1.19116, 1.37899, -3.88727)
 
 [node name="bird_NPC" parent="." instance=ExtResource("5_lc7k4")]
-transform = Transform3D(4.87782, 0, 0, 0, 4.8878, 0, 0, 0, 0.999999, -0.698391, 0.243734, 3.69112)
+transform = Transform3D(4.87782, 0, 0, 0, 4.8878, 0, 0, 0, 0.999999, 0.766625, 0.411319, 1.78355)

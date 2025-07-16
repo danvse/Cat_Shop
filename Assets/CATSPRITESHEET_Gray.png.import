@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcsd4148y3q08"
-path.s3tc="res://.godot/imported/JumpCattt.png-3f74e336a96485c57c54028c2b1ce650.s3tc.ctex"
+uid="uid://cr4madb8gn13n"
+path.s3tc="res://.godot/imported/CATSPRITESHEET_Gray.png-18c9ea04858f982acdb654c25991be2d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://AllCatsDemo/BatmanCatFree/JumpCattt.png"
-dest_files=["res://.godot/imported/JumpCattt.png-3f74e336a96485c57c54028c2b1ce650.s3tc.ctex"]
+source_file="res://Assets/CATSPRITESHEET_Gray.png"
+dest_files=["res://.godot/imported/CATSPRITESHEET_Gray.png-18c9ea04858f982acdb654c25991be2d.s3tc.ctex"]
 
 [params]
 

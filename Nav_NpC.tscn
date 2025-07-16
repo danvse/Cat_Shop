@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7qxhl6kes45l"]
+[gd_scene load_steps=2 format=3 uid="uid://b7qxhl6kes45l"]
 
 [ext_resource type="Script" uid="uid://cg80shq3otrff" path="res://character_body_3d.gd" id="1_pxnsh"]
-[ext_resource type="PackedScene" uid="uid://bqgsujve83j5w" path="res://go_dot_plush/godot_plush_model.glb" id="2_t3tow"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_pxnsh")
 
-[node name="godot_plush_model" parent="." instance=ExtResource("2_t3tow")]
+[node name="godot_plush_model" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254426, 0, -0.261596)
+script = null
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="godot_plush_model"]
 debug_enabled = true
@@ -21,5 +30,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254426, 0, 0.261596)
 
 [node name="Pivot" type="Node3D" parent="godot_plush_model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254426, 0, 0.261596)
-
-[editable path="godot_plush_model"]
