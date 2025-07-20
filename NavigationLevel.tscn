@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cxeuir6ie7pgf" path="res://NPCS/gray_character.tscn" id="13_coc88"]
 [ext_resource type="PackedScene" uid="uid://j0fiwy44ty2l" path="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/fbx/countertop_straight_B.fbx" id="13_ru6xu"]
 [ext_resource type="PackedScene" uid="uid://1a6sbuogblkf" path="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/fbx/wall_cabinet_corner.fbx" id="14_2g2e1"]
-[ext_resource type="PackedScene" uid="uid://b8igfvh10ykb1" path="res://List_Of_Cats/brown_cat.tscn" id="14_r2pvc"]
+[ext_resource type="PackedScene" uid="uid://b8igfvh10ykb1" path="res://List_Of_Cats/brown_Cat.tscn" id="14_r2pvc"]
 [ext_resource type="PackedScene" uid="uid://cxjcbrmfy8njc" path="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/fbx/wall_cabinet_straight.fbx" id="15_pnic8"]
-[ext_resource type="PackedScene" uid="uid://dbtbclx0pb1he" path="res://List_Of_Cats/sprite_3d.tscn" id="15_ru6xu"]
-[ext_resource type="PackedScene" uid="uid://b2mx1lkvut4eq" path="res://List_Of_Cats/white_cat.tscn" id="16_coc88"]
+[ext_resource type="PackedScene" uid="uid://dbtbclx0pb1he" path="res://List_Of_Cats/classical_Cat.tscn" id="15_ru6xu"]
+[ext_resource type="PackedScene" uid="uid://b2mx1lkvut4eq" path="res://List_Of_Cats/white_Cat.tscn" id="16_coc88"]
 [ext_resource type="PackedScene" uid="uid://bwa6w7vduiv26" path="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/fbx/wall_cabinet_single_left.fbx" id="16_tbbfu"]
 [ext_resource type="Script" uid="uid://dvpyrpefurnay" path="res://game_ui.gd" id="18_tbbfu"]
 [ext_resource type="Script" uid="uid://cy2jtq0d788md" path="res://Cat.gd" id="19_80wmq"]
@@ -202,6 +202,7 @@ transform = Transform3D(4.18972, 0, 0, 0, 4.39078, 0, 0, 0, 1.03578, -1.13322, 0
 
 [node name="white_Cat" parent="." instance=ExtResource("16_coc88")]
 transform = Transform3D(4.8901, 0, 0, 0, 4.13417, 0, 0, 0, 1.36843, 2.51869, 0.161468, -3.22906)
+script = null
 
 [node name="grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.62393, 0, 0, 0, 1.00564, 0, 0, 0, 16.1786, -6.37485, -1.45083, 0.321199)

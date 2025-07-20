@@ -154,12 +154,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 13.0
+"speed": 12.0
 }]
 
 [node name="batman_Cat" type="Sprite3D"]
 script = ExtResource("1_wtqi5")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_i41ym")
-animation = &"jump"
+animation = &"idle"

@@ -154,18 +154,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 16.0
+"speed": 12.0
 }]
 
 [node name="original_Cat" type="Sprite3D"]
 transform = Transform3D(4.18972, 0, 0, 0, 4.39078, 0, 0, 0, 1.03578, 2.55121, 0.316198, 0.263864)
 billboard = 1
+texture_filter = 0
 script = ExtResource("1_jp4m5")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00240922, -0.00164154, 0.0039984)
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_8x6vx")
-animation = &"idle"
-frame = 5
-frame_progress = 0.988018
+animation = &"jump"

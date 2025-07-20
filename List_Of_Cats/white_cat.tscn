@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://b2mx1lkvut4eq"]
 
-[ext_resource type="Script" uid="uid://blv52awa0ania" path="res://sprite_3d.gd" id="1_lul1m"]
+[ext_resource type="Script" uid="uid://8cacph868j2w" path="res://cat_Script.gd" id="1_g6foq"]
 [ext_resource type="Texture2D" uid="uid://sajgfsxbj0w8" path="res://AllCatsDemo/White/IdleCatttt.png" id="2_vo4vx"]
 [ext_resource type="Texture2D" uid="uid://boff5m6d4fouf" path="res://AllCatsDemo/White/JumpCattttt.png" id="3_61dwq"]
 
@@ -154,15 +154,16 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 15.0
+"speed": 12.0
 }]
 
 [node name="white_Cat" type="Sprite3D"]
 transform = Transform3D(4.8901, 0, 0, 0, 4.13417, 0, 0, 0, 1.36843, -0.035811, 0.0650009, 0)
-script = ExtResource("1_lul1m")
+script = ExtResource("1_g6foq")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00379944, -2.38419e-07, 0.00207567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0059948, 0.00207243, 0.00240322)
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_c0cce")
-animation = &"jump"
+animation = &"idle"

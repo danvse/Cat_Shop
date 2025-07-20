@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://djv687j8eamyy"]
+
+[ext_resource type="Script" uid="uid://s3pk0imrmj7m" path="res://cashier.gd" id="1_geoqa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_elmoy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qbwy"]
+albedo_color = Color(0.277351, 0.299387, 0.368697, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv3wa"]
+albedo_color = Color(0.278431, 0.298039, 0.368627, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t64fg"]
+albedo_color = Color(0.278431, 0.298039, 0.368627, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y8rg8"]
+radius = 2.95
+
+[node name="cashier" type="Node3D"]
+transform = Transform3D(0.99845, 0, 0, 0, 0.99845, 0, 0, 0, 0.99845, -1.9935, 0.00229466, 2.0006)
+script = ExtResource("1_geoqa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.380851, 0, 0, 0, 3.03528e-08, 0.105773, 0, 0.254617, -1.26091e-08, -0.721749, 0.031568, 0.334459)
+mesh = SubResource("BoxMesh_elmoy")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_3qbwy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.129601, -0.00823058, 0.0318196, 0.00474126, -0.230523, 0.339319, 0.000917742, 0.0286386, 2.74046, 0.0182157, -0.0669947, 0.715767)
+mesh = SubResource("BoxMesh_elmoy")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_dv3wa")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1.35184, 0, 0, 0, 0.0965963, -0.334147, 0, 0.0138664, 2.32774, -0.0129051, 0.1699, 2.31909)
+mesh = SubResource("BoxMesh_elmoy")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_t64fg")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.615656, 0, 0, 0, 1.48374, 0, 0, 2.84217e-14, 3.78813, 0.147032, 0.52107, 0.113899)
+shape = SubResource("SphereShape3D_y8rg8")
+
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_exited"]
