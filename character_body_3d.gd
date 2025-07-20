@@ -4,7 +4,7 @@ const SPEED := 5.0
 const JUMP_VELOCITY := 7.0
 
 var GRAVITY = ProjectSettings.get_setting("physics/3d/default_gravity")
-
+var scaled_down := false
 @onready var pivot: Node3D = $Pivot
 @onready var camera: Camera3D = $Pivot/Camera3D
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer  # Adjust if path differs
@@ -23,6 +23,14 @@ func _input(event: InputEvent) -> void:
 		rotation_x = clamp(rotation_x, deg_to_rad(-80), deg_to_rad(80))
 		rotation.y = rotation_y
 		pivot.rotation.x = rotation_x
+	if event.is_action_pressed("scale_toggle"):
+		toggle_scale()
+func toggle_scale():
+	if scaled_down:
+		scale = Vector3.ONE  # default scale (1,1,1)
+	else:
+		scale = Vector3.ONE * 0.1  # scale up -1.5x
+	scaled_down = !scaled_down
 
 func _physics_process(delta: float) -> void:
 	var input_direction = Vector3.ZERO

@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://20ipfpvpyu7k"]
+[gd_scene load_steps=37 format=3 uid="uid://20ipfpvpyu7k"]
 
+[ext_resource type="Script" uid="uid://d1efspvnrlm3m" path="res://navigation_level.gd" id="1_pnic8"]
 [ext_resource type="Texture2D" uid="uid://cs0er7nbd4qnf" path="res://background/blue_sky.png" id="1_r2pvc"]
 [ext_resource type="PackedScene" uid="uid://c3bvrwnvvyuo3" path="res://floor.tscn" id="2_u0uu0"]
 [ext_resource type="PackedScene" uid="uid://ojytandsni7d" path="res://walls_door.tscn" id="2_xhl1y"]
@@ -17,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://dbtbclx0pb1he" path="res://List_Of_Cats/sprite_3d.tscn" id="15_ru6xu"]
 [ext_resource type="PackedScene" uid="uid://b2mx1lkvut4eq" path="res://List_Of_Cats/white_cat.tscn" id="16_coc88"]
 [ext_resource type="PackedScene" uid="uid://bwa6w7vduiv26" path="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/fbx/wall_cabinet_single_left.fbx" id="16_tbbfu"]
+[ext_resource type="Script" uid="uid://dvpyrpefurnay" path="res://game_ui.gd" id="18_tbbfu"]
+[ext_resource type="Script" uid="uid://cy2jtq0d788md" path="res://Cat.gd" id="19_80wmq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8s5sm"]
 cell_height = 2.0
@@ -57,7 +60,7 @@ size = Vector3(5, 1.003, 1)
 size = Vector3(2, 3, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_coc88"]
-size = Vector3(6, 0.5, 0.7)
+size = Vector3(6, 0.2, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2pvc"]
 size = Vector3(0.8, 0.5, 0.8)
@@ -67,9 +70,11 @@ size = Vector3(2, 2, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r2pvc"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kw8qq"]
+
 [node name="NavigationRegion3D" type="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0815912, 2.6207, -0.797802)
 navigation_mesh = SubResource("NavigationMesh_8s5sm")
+script = ExtResource("1_pnic8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.986438, -0.142145, 0.0820676, -0.0846513, -0.0122152, 0.996336, -0.140622, -0.98977, -0.0240823, -2.34654, 6.78526, 4.58061)
@@ -91,24 +96,24 @@ size = Vector3(10, 1, 10)
 [node name="utensils_cup" parent="." instance=ExtResource("7_bp81v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303184, -0.0130723, 2.36018)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.233489, 0.984074, -0.519795)
 collision_mask = 3
 script = ExtResource("11_n07cp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_xhl1y")
 
-[node name="Pivot" type="Node3D" parent="CharacterBody3D"]
+[node name="Pivot" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Pivot"]
+[node name="Camera3D" type="Camera3D" parent="Player/Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player"]
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+[node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Floor" parent="." instance=ExtResource("2_u0uu0")]
@@ -178,7 +183,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28595, 1.17627, 3.90722)
 shape = SubResource("BoxShape3D_n07cp")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Kitchen2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99406, -0.227329, 2.35857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03963, -0.150369, 2.35857)
 shape = SubResource("BoxShape3D_coc88")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Kitchen2"]
@@ -189,14 +194,8 @@ shape = SubResource("BoxShape3D_r2pvc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93185, -0.0704074, -4.2859)
 shape = SubResource("BoxShape3D_ru6xu")
 
-[node name="orange_Character" parent="." instance=ExtResource("12_of4dv")]
-transform = Transform3D(0.846874, 0, 0.984944, 0, 7.22664, 0, -4.82502, 0, 0.172875, 2.47945, 0.480212, -0.74198)
-
 [node name="gray_Character" parent="." instance=ExtResource("13_coc88")]
 transform = Transform3D(-0.999984, 0, -0.00563729, 0, 1, 0, 0.00563729, 0, -0.999984, -1.99173, 0.155153, 3.18285)
-
-[node name="brown_Cat" parent="." instance=ExtResource("14_r2pvc")]
-transform = Transform3D(2.08804, 0, 0, 0, 2.32602, 0, 0, 0, 1, 0.978882, 0.895988, -4.26301)
 
 [node name="original_Cat" parent="." instance=ExtResource("15_ru6xu")]
 transform = Transform3D(4.18972, 0, 0, 0, 4.39078, 0, 0, 0, 1.03578, -1.13322, 0.522821, -2.59218)
@@ -207,6 +206,53 @@ transform = Transform3D(4.8901, 0, 0, 0, 4.13417, 0, 0, 0, 1.36843, 2.51869, 0.1
 [node name="grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.62393, 0, 0, 0, 1.00564, 0, 0, 0, 16.1786, -6.37485, -1.45083, 0.321199)
 mesh = SubResource("PlaneMesh_r2pvc")
+
+[node name="Game_Ui" type="CanvasLayer" parent="."]
+script = ExtResource("18_tbbfu")
+
+[node name="CatCountLabel" type="Label" parent="Game_Ui"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 40.0
+offset_bottom = -25.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.98, 0.297267, 0.049, 1)
+
+[node name="Win_label" type="Label" parent="Game_Ui"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -74.0
+offset_right = -26.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.813468, 1.10701e-06, 0.396921, 1)
+
+[node name="Orange_Cat" type="Area3D" parent="." groups=["cats"]]
+script = ExtResource("19_80wmq")
+
+[node name="orange_Character" parent="Orange_Cat" instance=ExtResource("12_of4dv")]
+transform = Transform3D(0.846874, 0, 0.984944, 0, 7.22664, 0, -4.82502, 0, 0.172875, 2.47945, 0.480212, -0.74198)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Orange_Cat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59439, 0.291259, -0.736123)
+shape = SubResource("BoxShape3D_kw8qq")
+
+[node name="Brown_cat" type="Area3D" parent="." groups=["cats"]]
+script = ExtResource("19_80wmq")
+
+[node name="brown_Cat" parent="Brown_cat" instance=ExtResource("14_r2pvc")]
+transform = Transform3D(2.08804, 0, 0, 0, 2.32602, 0, 0, 0, 1, 0.978882, 0.895988, -4.26301)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Brown_cat"]
 
 [editable path="Floor"]
 [editable path="Wall/Walls_Door"]
