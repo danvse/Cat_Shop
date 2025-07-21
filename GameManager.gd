@@ -1,6 +1,6 @@
 extends Node
 
-var total_cats := 13
+var total_cats := 14
 var collected_cats := 0
 signal update_ui(collected: int)
 signal game_won

@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://k8rhj41jg0ui"]
+[gd_scene load_steps=29 format=3 uid="uid://k8rhj41jg0ui"]
 
 [ext_resource type="Script" uid="uid://d0a01e023ibof" path="res://List_Of_Cats/cat_Character.gd" id="1_8c0qo"]
 [ext_resource type="Texture2D" uid="uid://m7rgd632ooag" path="res://AllCatsDemo/EgyptCatFree/IdleCatb.png" id="2_8c0qo"]
 [ext_resource type="Texture2D" uid="uid://dguxmopgc55tv" path="res://AllCatsDemo/EgyptCatFree/JumpCabt.png" id="3_051nq"]
 [ext_resource type="PackedScene" uid="uid://dvwp8dwlylgfq" path="res://List_Of_Cats/batman_Cat_test.tscn" id="4_051nq"]
+[ext_resource type="AudioStream" uid="uid://bn8aq80i2p626" path="res://kitten_mew-1 (1).ogg" id="5_051nq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ddvu"]
 atlas = ExtResource("2_8c0qo")
@@ -181,6 +182,9 @@ shape = SubResource("SphereShape3D_tk0qn")
 
 [node name="collect" parent="." instance=ExtResource("4_051nq")]
 transform = Transform3D(0.26245, 0, 0, 0, 0.333181, 0, 0, 0, 0.191268, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="collect"]
+stream = ExtResource("5_051nq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.364097, 0, 0, 0, 0.371395, 0, 0, 0, 0.0499993, 0, 0, 0)
