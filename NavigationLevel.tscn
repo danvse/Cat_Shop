@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cxjcbrmfy8njc" path="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/fbx/wall_cabinet_straight.fbx" id="15_pnic8"]
 [ext_resource type="PackedScene" uid="uid://bwa6w7vduiv26" path="res://Tiny_Treats_Charming_Kitchen_1.0_FREE/Assets/fbx/wall_cabinet_single_left.fbx" id="16_tbbfu"]
 [ext_resource type="Script" uid="uid://dvpyrpefurnay" path="res://game_ui.gd" id="18_tbbfu"]
-[ext_resource type="AudioStream" uid="uid://bn8aq80i2p626" path="res://kitten_mew-1 (1).ogg" id="21_uwqkt"]
+[ext_resource type="AudioStream" uid="uid://bnq6bf5nb78j0" path="res://Assets/music/kitten_mew-1 (1).ogg" id="21_uwqkt"]
 [ext_resource type="PackedScene" uid="uid://djv687j8eamyy" path="res://Items/cashier.tscn" id="22_80wmq"]
 [ext_resource type="PackedScene" uid="uid://cxnb6cprbfbg2" path="res://List_Of_Cats/siamese_Cat.tscn" id="22_kw8qq"]
 [ext_resource type="PackedScene" uid="uid://ds7wr1sgkpuel" path="res://List_Of_Cats/black_Cat.tscn" id="23_kw8qq"]
