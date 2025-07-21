@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dtt116umbgwk"]
+[gd_scene load_steps=28 format=3 uid="uid://dtt116umbgwk"]
 
+[ext_resource type="Script" uid="uid://d0a01e023ibof" path="res://List_Of_Cats/cat_Character.gd" id="1_0jr0o"]
 [ext_resource type="Texture2D" uid="uid://bfl124dfrudhi" path="res://AllCatsDemo/TigerCatFree/IdleCatt.png" id="1_1dhba"]
-[ext_resource type="Script" uid="uid://8cacph868j2w" path="res://cat_Script.gd" id="1_86i1c"]
 [ext_resource type="Texture2D" uid="uid://boh03emeewko8" path="res://AllCatsDemo/TigerCatFree/JumpCattt.png" id="2_86i1c"]
+[ext_resource type="PackedScene" uid="uid://dvwp8dwlylgfq" path="res://List_Of_Cats/batman_Cat_test.tscn" id="4_qepwu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36b15"]
 atlas = ExtResource("1_1dhba")
@@ -157,8 +158,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="tiger_Cat" type="Sprite3D"]
-script = ExtResource("1_86i1c")
+[sub_resource type="BoxShape3D" id="BoxShape3D_64evf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d0syh"]
+radius = 0.534839
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_0jr0o")
+run_speed = 14.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0194908, 0.0751526, 0.00216979)
@@ -168,3 +175,20 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_yv4e5")
 animation = &"jump"
 frame_progress = 0.187591
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.802298, 0, 0, 0, 0.728122, 0, 0, 0, 0.0499993, 0, 0, 0)
+shape = SubResource("BoxShape3D_64evf")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(3.43508, 0, 0, 0, 1.52139, 0, 0, 0, 0.78116, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.862977, 0, 0, 0, 1.38116, 0, 0, 0, 3.55257, -1.19209e-07, -0.0205625, -0.108074)
+shape = SubResource("SphereShape3D_d0syh")
+
+[node name="collect" parent="." instance=ExtResource("4_qepwu")]
+transform = Transform3D(0.26245, 0, 0, 0, 0.333181, 0, 0, 0, 0.191268, 0, 0, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

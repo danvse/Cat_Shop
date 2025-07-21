@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://b87eit1p6afcx"]
+
+[ext_resource type="Texture2D" uid="uid://nuov86h70fr" path="res://Assets/catWin.png" id="1_l2arl"]
+[ext_resource type="Script" uid="uid://ddptrg8ww3img" path="res://win_screen.gd" id="1_l5t5q"]
+[ext_resource type="AudioStream" uid="uid://b6o05nwmyx5xs" path="res://Assets/music/24 3am _ Towball's Crossing.mp3" id="2_wmwda"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wmwda"]
+texture = ExtResource("1_l2arl")
+
+[node name="win_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l5t5q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 644.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_wmwda")
+
+[node name="win_Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 146.0
+offset_right = 900.0
+offset_bottom = 342.0
+theme_override_font_sizes/font_size = 50
+text = "You have found all the cats"
+
+[node name="back_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 348.0
+offset_right = 829.0
+offset_bottom = 418.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wmwda")
+autoplay = true
+
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

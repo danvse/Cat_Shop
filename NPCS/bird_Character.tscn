@@ -146,6 +146,7 @@ script = ExtResource("1_wjv70")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00307334, 2.98023e-08, 0.000619382)
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_e0k0e")
 animation = &"back_Idle"
 frame_progress = 0.347333

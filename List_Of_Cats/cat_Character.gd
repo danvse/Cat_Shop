@@ -1,45 +1,59 @@
 extends CharacterBody3D
 @onready var cat_sprite = $AnimatedSprite3D
-@export var speed := 2.0
-@onready var nav_agent = $NavigationAgent3D
-@export var hiding_spots: Array[NodePath]
+@export var player_path: NodePath
+@export var run_speed: float = 5.0
+var is_player_nearby: bool = false
+var player: Node3D = null
+var is_jumping = false
 
-@export var float_strength := 0.1
 var GRAVITY = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _ready():
 	cat_sprite.play("idle")
-	go_hide()
+	player = get_node_or_null("/root/World/Player")
 
 func _physics_process(delta):
-	# Apply gravity
+	# Gravity
 	if is_on_floor():
 		velocity.y = 0
 	else:
 		velocity.y -= GRAVITY * delta
+		
+	if is_player_nearby and player:
+		var direction_away = global_transform.origin - player.global_transform.origin
+		direction_away.y = 0
+		direction_away = direction_away.normalized()
 
-	if not nav_agent.is_navigation_finished():
-		var next_point = nav_agent.get_next_path_position()
-		var direction = (next_point - global_position).normalized()
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		if direction_away.length() > 0.1:
+			velocity.x = direction_away.x * run_speed
+			velocity.z = direction_away.z * run_speed
+			cat_sprite.play("jump")
+			
+		elif not is_jumping:
+			velocity.x = move_toward(velocity.x, 0, run_speed)
+			velocity.z = move_toward(velocity.z, 0, run_speed)
+			cat_sprite.play("idle")
 
 	else:
-		velocity.x = 0
-		velocity.z = 0
-
+		velocity.x = move_toward(velocity.x, 0, run_speed)
+		velocity.z = move_toward(velocity.z, 0, run_speed)
+		
+		if not is_jumping and cat_sprite.animation != "idle":
+			cat_sprite.play("idle")
+	
 	move_and_slide()
-	nav_agent.set_velocity(velocity)
 
-func go_hide():
-	if hiding_spots.is_empty():
-		return
+func _on_area_3d_body_entered(body):
+	if body.name == "Player":
+		is_player_nearby = true
+		player = body
 
-	var spots = hiding_spots.map(func(path): return get_node(path))
-	for s in spots:
-		print("Spot:", s.name, "Position:", s.global_position)
 
-	var target_spot = spots.find(func(s): return s.name == "Hidingspot2")
-	if target_spot == null:
-		print("Could not find Hidingspot2")
-		return
-	print("Is target reachable?", nav_agent.is_target_reachable(target_spot.global_position))
+func _on_area_3d_body_exited(body):
+	if body.name == "Player":
+		is_player_nearby = false
+		player = null
+
+
+func _on_animated_sprite_3d_animation_finished():
+	if cat_sprite.animation == "jump":
+		is_jumping = false

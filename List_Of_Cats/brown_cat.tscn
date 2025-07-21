@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://b8igfvh10ykb1"]
+[gd_scene load_steps=27 format=3 uid="uid://b8igfvh10ykb1"]
 
 [ext_resource type="Script" uid="uid://8cacph868j2w" path="res://cat_Script.gd" id="1_hapi4"]
 [ext_resource type="Texture2D" uid="uid://dr633oetesnaa" path="res://AllCatsDemo/Brown/IdleCattt.png" id="2_hkcwy"]
 [ext_resource type="Texture2D" uid="uid://b6frnvl5l00f4" path="res://AllCatsDemo/Brown/JumpCatttt.png" id="3_fj8tl"]
+[ext_resource type="PackedScene" uid="uid://dvwp8dwlylgfq" path="res://List_Of_Cats/batman_Cat_test.tscn" id="4_hkcwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_to03v"]
 atlas = ExtResource("2_hkcwy")
@@ -157,6 +158,8 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fj8tl"]
+
 [node name="brown_Cat" type="Sprite3D"]
 transform = Transform3D(2.08804, 0, 0, 0, 2.32602, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.0001
@@ -167,3 +170,10 @@ billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_c5cdi")
 animation = &"jump"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.364097, 0, 0, 0, 0.371395, 0, 0, 0, 0.0499993, 0, 0, 0)
+shape = SubResource("BoxShape3D_fj8tl")
+
+[node name="collect" parent="." instance=ExtResource("4_hkcwy")]
+transform = Transform3D(0.26245, 0, 0, 0, 0.333181, 0, 0, 0, 0.191268, 0, 0, 0)

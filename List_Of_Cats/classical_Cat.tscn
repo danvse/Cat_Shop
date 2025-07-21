@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbtbclx0pb1he"]
+[gd_scene load_steps=28 format=3 uid="uid://dbtbclx0pb1he"]
 
-[ext_resource type="Script" uid="uid://8cacph868j2w" path="res://cat_Script.gd" id="1_jp4m5"]
+[ext_resource type="Script" uid="uid://d0a01e023ibof" path="res://List_Of_Cats/cat_Character.gd" id="1_47ehx"]
 [ext_resource type="Texture2D" uid="uid://3851xppwm2bo" path="res://AllCatsDemo/Classical/IdleCat.png" id="2_n835s"]
 [ext_resource type="Texture2D" uid="uid://dngwvni37mgo4" path="res://AllCatsDemo/Classical/JumpCat.png" id="3_q48tx"]
+[ext_resource type="PackedScene" uid="uid://dvwp8dwlylgfq" path="res://List_Of_Cats/batman_Cat_test.tscn" id="4_h2ow8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ji7qk"]
 atlas = ExtResource("2_n835s")
@@ -157,11 +158,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="original_Cat" type="Sprite3D"]
-transform = Transform3D(4.18972, 0, 0, 0, 4.39078, 0, 0, 0, 1.03578, 2.55121, 0.316198, 0.263864)
-billboard = 1
-texture_filter = 0
-script = ExtResource("1_jp4m5")
+[sub_resource type="BoxShape3D" id="BoxShape3D_47ehx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h2ow8"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_47ehx")
+run_speed = 2.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00240922, -0.00164154, 0.0039984)
@@ -169,3 +172,20 @@ billboard = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_8x6vx")
 animation = &"jump"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.364097, 0, 0, 0, 0.371395, 0, 0, 0, 0.0499993, 0, 0, 0)
+shape = SubResource("BoxShape3D_47ehx")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.473566, 0, 0, 0, 0.316852, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(3.44406, 0, 0, 0, 1.38116, 0, 0, 0, 10.482, -1.19209e-07, -0.0205625, -0.108074)
+shape = SubResource("CylinderShape3D_h2ow8")
+
+[node name="collect" parent="." instance=ExtResource("4_h2ow8")]
+transform = Transform3D(0.26245, 0, 0, 0, 0.333181, 0, 0, 0, 0.191268, 0, 0, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

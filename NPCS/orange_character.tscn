@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dxa660kewlsg3"]
+[gd_scene load_steps=21 format=3 uid="uid://dxa660kewlsg3"]
 
 [ext_resource type="Script" uid="uid://4n6t1rfxy1cu" path="res://NPCS/npc_Character.gd" id="1_fgtal"]
 [ext_resource type="Texture2D" uid="uid://g508pfriyxek" path="res://Assets/CATSPRITESHEET_Orange.png" id="2_scf2x"]
+[ext_resource type="PackedScene" uid="uid://dvwp8dwlylgfq" path="res://List_Of_Cats/batman_Cat_test.tscn" id="3_scf2x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3w6g"]
 atlas = ExtResource("2_scf2x")
@@ -144,5 +145,9 @@ script = ExtResource("1_fgtal")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_urxxd")
 animation = &"back_Idle"
+
+[node name="collect" parent="." instance=ExtResource("3_scf2x")]
+transform = Transform3D(0.339748, 0, 0, 0, 0.298878, 0, 0, 0, 0.31143, 0, 0, 0)

@@ -144,5 +144,6 @@ script = ExtResource("1_04fwq")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(3.97194, 0, 0, 0, 3.66403, 0, 0, 0, 1.01651, -0.022882, -0.0468931, 0)
 billboard = 1
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_23uoq")
 animation = &"back_Idle"
